@@ -19,3 +19,13 @@ Main purpose of this project is to manage data from Oracle 11g database on Warsa
 
 ### Conceptual Model
 ![conceptual](extras/ConceptualModel.PNG)
+
+## Features
+---
+*Two types of user account ( Admin and User)
+*Showing Shops, Agencies and Employees including their attributes. [BOTH]
+*Extra attribute in shop view - getting number of agencies belong to shop company.[BOTH]
+*Removing from database Shop, Agency or Employee.[ADMIN]
+*Adding new Employee into database.[ADMIN]
+*Handle SQLException by JPanel with SQL error code and description.[ADMIN]
+
