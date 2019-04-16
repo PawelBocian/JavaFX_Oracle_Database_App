@@ -15,24 +15,20 @@ Main purpose of this project is to manage data from Oracle 11g database on Warsa
 ## Models
 ---
 
-Solarized dark             |  Solarized Ocean
+Logical Model           |  Conceptual Model
 :-------------------------:|:-------------------------:
 ![](extras/LogicalModel.PNG)  |  ![](extras/ConceptualModel.PNG)
-
-
-
-### Logical Model
-![](extras/LogicalModel.PNG)
-
-### Conceptual Model
-
 
 ## Features
 ---
 * Two types of user account ( Admin and User)
-* Showing Shops, Agencies and Employees including their attributes. [BOTH]
-* Extra attribute in shop view - getting number of agencies belong to shop company.[BOTH]
-* Removing from database Shop, Agency or Employee.[ADMIN]
-* Adding new Employee into database.[ADMIN]
-* Handle SQLException by JPanel with SQL error code and description.[ADMIN]
+* Showing Shops, Agencies and Employees including their attributes. [**BOTH**]
+* Extra attribute in shop view - getting number of agencies belong to shop company.[**BOTH**]
+* Removing from database Shop, Agency or Employee.[**ADMIN**]
+* Adding new Employee into database.[**ADMIN**]
+* Handle SQLException by JPanel with SQL error code and description.[**ADMIN**]
 
+## Future updates
+---
+* Getting data via dynamic database view
+* Replace static sql requests and use functions implementen in Oracle database
