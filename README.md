@@ -2,10 +2,7 @@
 Main purpose of this project is to manage data from Oracle 11g database on Warsaw University of Technology servers.     
 ( Created in a weekend to confirm SQL/Oracle/JavaFX knowledge. )
 
-* Build using 
-* Models
-* Features
-* Description
+![](extras/database-gif.gif)
 
 ## Build using :
 ---
