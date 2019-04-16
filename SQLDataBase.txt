@@ -1,0 +1,296 @@
+/*
+Created: 06.04.2019
+Modified: 14.04.2019
+Model: Shop
+Database: Oracle 11g Release 2
+*/
+
+
+-- Create sequences section -------------------------------------------------
+
+CREATE SEQUENCE ShopIdSeq
+ INCREMENT BY 1
+ START WITH 1
+ NOMAXVALUE
+ NOMINVALUE
+ CACHE 20
+/
+
+CREATE SEQUENCE AgencyIDSeq
+ INCREMENT BY 1
+ START WITH 1
+ NOMAXVALUE
+ NOMINVALUE
+ CACHE 20
+/
+
+CREATE SEQUENCE AddressIdSeq
+ INCREMENT BY 1
+ START WITH 1
+ NOMAXVALUE
+ NOMINVALUE
+ CACHE 20
+/
+
+CREATE SEQUENCE EmployeeIdSeq
+ INCREMENT BY 1
+ START WITH 1
+ NOMAXVALUE
+ NOMINVALUE
+ CACHE 20
+/
+
+CREATE SEQUENCE JobTitleIdSeq
+ INCREMENT BY 1
+ START WITH 1
+ NOMAXVALUE
+ NOMINVALUE
+ CACHE 20
+/
+
+CREATE SEQUENCE SalaryIdSeq
+ INCREMENT BY 1
+ START WITH 1
+ NOMAXVALUE
+ NOMINVALUE
+ CACHE 20
+/
+
+-- Create tables section -------------------------------------------------
+
+-- Table Shops
+
+CREATE TABLE Shops(
+  ShopID Integer NOT NULL,
+  Name Varchar2(30 ) NOT NULL,
+  DateOfEstablishment Date NOT NULL,
+  Surface Float(126)
+)
+/
+
+-- Add keys for table Shops
+
+ALTER TABLE Shops ADD CONSTRAINT ShopPrimaryKey PRIMARY KEY (ShopID)
+/
+
+-- Table Agencies
+
+CREATE TABLE Agencies(
+  AgencyID Integer NOT NULL,
+  AgencyDateOfEstablishment Date NOT NULL,
+  ShopID Integer NOT NULL,
+  AddressID Integer NOT NULL
+)
+/
+
+-- Create indexes for table Agencies
+
+CREATE INDEX IX_Shop_has_agency ON Agencies (ShopID)
+/
+
+CREATE INDEX IX_Address_ID_I2 ON Agencies (AddressID)
+/
+
+-- Add keys for table Agencies
+
+ALTER TABLE Agencies ADD CONSTRAINT AgencyPrimaryKey PRIMARY KEY (AgencyID)
+/
+
+-- Table Employees
+
+CREATE TABLE Employees(
+  EmployeeID Integer NOT NULL,
+  Name Varchar2(20 ) NOT NULL,
+  Surname Varchar2(20 ) NOT NULL,
+  DateOfEmployment Date NOT NULL,
+  Gender Varchar2(10 ) NOT NULL,
+  PESEL Varchar2(11 ),
+  AgencyID Integer NOT NULL,
+  JobTitleID Integer NOT NULL,
+  AddressID Integer NOT NULL
+)
+/
+
+-- Create indexes for table Employees
+
+CREATE INDEX IX_Agency_employs_employees ON Employees (AgencyID)
+/
+
+CREATE INDEX IX_Employee_has_JobTitle ON Employees (JobTitleID)
+/
+
+CREATE INDEX IX_Address_I2 ON Employees (AddressID)
+/
+
+-- Add keys for table Employees
+
+ALTER TABLE Employees ADD CONSTRAINT EmployeePrimaryKey PRIMARY KEY (EmployeeID)
+/
+
+-- Table Salaries
+
+CREATE TABLE Salaries(
+  SalaryID Integer NOT NULL,
+  PaymentDate Date NOT NULL,
+  BasicSalary Number(10,2) NOT NULL,
+  Bonus Number(10,2),
+  EmployeeID Integer NOT NULL
+)
+/
+
+-- Create indexes for table Salaries
+
+CREATE INDEX IX_Employee_earns_salary ON Salaries (EmployeeID)
+/
+
+-- Add keys for table Salaries
+
+ALTER TABLE Salaries ADD CONSTRAINT SalaryPrimaryKey PRIMARY KEY (SalaryID)
+/
+
+-- Table JobTitles
+
+CREATE TABLE JobTitles(
+  JobTitleID Integer NOT NULL,
+  Name Varchar2(20 ) NOT NULL,
+  Description Varchar2(300 ) NOT NULL
+)
+/
+
+-- Add keys for table JobTitles
+
+ALTER TABLE JobTitles ADD CONSTRAINT JobTitlePrimaryKey PRIMARY KEY (JobTitleID)
+/
+
+-- Table Addresses
+
+CREATE TABLE Addresses(
+  AddressID Integer NOT NULL,
+  Street Varchar2(20 ) NOT NULL,
+  HomeNumber Varchar2(4 ) NOT NULL,
+  ApartmentNumber Integer,
+  State Varchar2(30 ) NOT NULL,
+  PostCode Varchar2(30 ),
+  Country Varchar2(2 ) NOT NULL
+)
+/
+
+-- Add keys for table Addresses
+
+ALTER TABLE Addresses ADD CONSTRAINT AddressPrimaryKey PRIMARY KEY (AddressID)
+/
+
+-- Trigger for sequence ShopIdSeq for column ShopID in table Shops ---------
+CREATE OR REPLACE TRIGGER ts_Shops_ShopIdSeq BEFORE INSERT
+ON Shops FOR EACH ROW
+BEGIN
+  :new.ShopID := ShopIdSeq.nextval;
+END;
+/
+CREATE OR REPLACE TRIGGER tsu_Shops_ShopIdSeq AFTER UPDATE OF ShopID
+ON Shops FOR EACH ROW
+BEGIN
+  RAISE_APPLICATION_ERROR(-20010,'Cannot update column ShopID in table Shops as it uses sequence.');
+END;
+/
+
+-- Trigger for sequence AgencyIDSeq for column AgencyID in table Agencies ---------
+CREATE OR REPLACE TRIGGER ts_Agencies_AgencyIDSeq BEFORE INSERT
+ON Agencies FOR EACH ROW
+BEGIN
+  :new.AgencyID := AgencyIDSeq.nextval;
+END;
+/
+CREATE OR REPLACE TRIGGER tsu_Agencies_AgencyIDSeq AFTER UPDATE OF AgencyID
+ON Agencies FOR EACH ROW
+BEGIN
+  RAISE_APPLICATION_ERROR(-20010,'Cannot update column AgencyID in table Agencies as it uses sequence.');
+END;
+/
+
+-- Trigger for sequence EmployeeIdSeq for column EmployeeID in table Employees ---------
+CREATE OR REPLACE TRIGGER ts_Employees_EmployeeIdSeq BEFORE INSERT
+ON Employees FOR EACH ROW
+BEGIN
+  :new.EmployeeID := EmployeeIdSeq.nextval;
+END;
+/
+CREATE OR REPLACE TRIGGER tsu_Employees_EmployeeIdSeq AFTER UPDATE OF EmployeeID
+ON Employees FOR EACH ROW
+BEGIN
+  RAISE_APPLICATION_ERROR(-20010,'Cannot update column EmployeeID in table Employees as it uses sequence.');
+END;
+/
+
+-- Trigger for sequence SalaryIdSeq for column SalaryID in table Salaries ---------
+CREATE OR REPLACE TRIGGER ts_Salaries_SalaryIdSeq BEFORE INSERT
+ON Salaries FOR EACH ROW
+BEGIN
+  :new.SalaryID := SalaryIdSeq.nextval;
+END;
+/
+CREATE OR REPLACE TRIGGER tsu_Salaries_SalaryIdSeq AFTER UPDATE OF SalaryID
+ON Salaries FOR EACH ROW
+BEGIN
+  RAISE_APPLICATION_ERROR(-20010,'Cannot update column SalaryID in table Salaries as it uses sequence.');
+END;
+/
+
+-- Trigger for sequence JobTitleIdSeq for column JobTitleID in table JobTitles ---------
+CREATE OR REPLACE TRIGGER ts_JobTitles_JobTitleIdSeq BEFORE INSERT
+ON JobTitles FOR EACH ROW
+BEGIN
+  :new.JobTitleID := JobTitleIdSeq.nextval;
+END;
+/
+CREATE OR REPLACE TRIGGER tsu_JobTitles_JobTitleIdSeq AFTER UPDATE OF JobTitleID
+ON JobTitles FOR EACH ROW
+BEGIN
+  RAISE_APPLICATION_ERROR(-20010,'Cannot update column JobTitleID in table JobTitles as it uses sequence.');
+END;
+/
+
+-- Trigger for sequence AddressIdSeq for column AddressID in table Addresses ---------
+CREATE OR REPLACE TRIGGER ts_Addresses_AddressIdSeq BEFORE INSERT
+ON Addresses FOR EACH ROW
+BEGIN
+  :new.AddressID := AddressIdSeq.nextval;
+END;
+/
+CREATE OR REPLACE TRIGGER tsu_Addresses_AddressIdSeq AFTER UPDATE OF AddressID
+ON Addresses FOR EACH ROW
+BEGIN
+  RAISE_APPLICATION_ERROR(-20010,'Cannot update column AddressID in table Addresses as it uses sequence.');
+END;
+/
+
+
+-- Create foreign keys (relationships) section ------------------------------------------------- 
+
+ALTER TABLE Agencies ADD CONSTRAINT Shop_has_agency FOREIGN KEY (ShopID) REFERENCES Shops (ShopID)
+/
+
+
+ALTER TABLE Employees ADD CONSTRAINT Agency_employs_employees FOREIGN KEY (AgencyID) REFERENCES Agencies (AgencyID)
+/
+
+
+ALTER TABLE Salaries ADD CONSTRAINT Employee_earns_salary FOREIGN KEY (EmployeeID) REFERENCES Employees (EmployeeID)
+/
+
+
+ALTER TABLE Employees ADD CONSTRAINT Employee_has_JobTitle FOREIGN KEY (JobTitleID) REFERENCES JobTitles (JobTitleID)
+/
+
+
+ALTER TABLE Employees ADD CONSTRAINT Employee_has_address FOREIGN KEY (AddressID) REFERENCES Addresses (AddressID)
+/
+
+
+ALTER TABLE Agencies ADD CONSTRAINT Agency_has_address FOREIGN KEY (AddressID) REFERENCES Addresses (AddressID)
+/
+
+
+
+
+
