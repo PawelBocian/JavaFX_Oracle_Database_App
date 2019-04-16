@@ -14,8 +14,8 @@ Main purpose of this project is to manage data from Oracle 11g database on Warsa
 
 ## Models
 ---
-# Logical Model
-![](extras/LogicalModel.png)
+### Logical Model
+![logical](extras/LogicalModel.png)
 
-# Conceptual Model
-![](extras/ConceptualModel.png)
+### Conceptual Model
+![conceptual](extras/ConceptualModel.png)
