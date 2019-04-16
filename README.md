@@ -4,7 +4,7 @@ Main purpose of this project is to manage data from Oracle 11g database on Warsa
 
 ## Build using :
 ---
-* [Oracle SQL Developer](https://www.oracle.com/pl/database/technologies/appdev/sql-developer.html)
+* [Oracle jdbc6](https://www.oracle.com/pl/database/technologies/appdev/jdbc.html)
 * [JPhoenix](http://www.jfoenix.com/)
 * [Scene Builder](https://gluonhq.com/products/scene-builder/)
 * [Toad Data Modeler 6.5](https://www.quest.com/products/toad-data-modeler/)
