@@ -14,11 +14,18 @@ Main purpose of this project is to manage data from Oracle 11g database on Warsa
 
 ## Models
 ---
+
+Solarized dark             |  Solarized Ocean
+:-------------------------:|:-------------------------:
+![](extras/LogicalModel.PNG)  |  ![](extras/ConceptualModel.PNG)
+
+
+
 ### Logical Model
-![logical](extras/LogicalModel.PNG)
+![](extras/LogicalModel.PNG)
 
 ### Conceptual Model
-![conceptual](extras/ConceptualModel.PNG)
+
 
 ## Features
 ---
