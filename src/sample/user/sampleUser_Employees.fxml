@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane prefHeight="500.0" prefWidth="800.0" style="-fx-background-color: #555353;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.UserEmployeeController">
+   <children>
+      <TableView fx:id="employeesTable" layoutX="8.0" layoutY="8.0" prefHeight="383.0" prefWidth="783.0">
+         <columns>
+            <TableColumn fx:id="colID" prefWidth="33.0" text="ID" />
+            <TableColumn fx:id="colName" prefWidth="70.0" text="Name" />
+            <TableColumn fx:id="colSurname" prefWidth="93.0" text="Surname" />
+            <TableColumn fx:id="colGender" prefWidth="64.0" text="Gender" />
+            <TableColumn fx:id="colDate" prefWidth="145.0" text="Date Of Employment" />
+            <TableColumn fx:id="colPesel" minWidth="0.0" prefWidth="95.0" text="PESEL" />
+            <TableColumn fx:id="colAddress" minWidth="0.0" prefWidth="183.0" text="Address" />
+            <TableColumn fx:id="colJobTitle" prefWidth="99.0" text="Job title" />
+         </columns>
+      </TableView>
+      <JFXButton fx:id="refreshEmployeeButton" buttonType="RAISED" layoutX="188.0" layoutY="405.0" onAction="#refreshEmployeeButtononClicked" prefHeight="75.0" prefWidth="155.0" ripplerFill="WHITE" style="-fx-background-color: #3d9fcc;" text="Refresh" textFill="WHITE" />
+      <JFXButton fx:id="BackEmployeeButton" buttonType="RAISED" layoutX="21.0" layoutY="405.0" onAction="#backEmployeeButtononClicked" prefHeight="75.0" prefWidth="155.0" ripplerFill="WHITE" style="-fx-background-color: #3d9fcc;" text=" &lt;--- Back" textFill="WHITE" />
+   </children>
+</AnchorPane>

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane prefHeight="500.0" prefWidth="800.0" style="-fx-background-color: #555353;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.AdminEmployeeController">
+   <children>
+      <TableView fx:id="employeesTable" layoutX="8.0" layoutY="8.0" prefHeight="383.0" prefWidth="783.0">
+         <columns>
+            <TableColumn fx:id="colID" prefWidth="33.0" text="ID" />
+            <TableColumn fx:id="colName" prefWidth="70.0" text="Name" />
+            <TableColumn fx:id="colSurname" prefWidth="93.0" text="Surname" />
+            <TableColumn fx:id="colGender" prefWidth="64.0" text="Gender" />
+            <TableColumn fx:id="colDate" prefWidth="145.0" text="Date Of Employment" />
+            <TableColumn fx:id="colPesel" minWidth="0.0" prefWidth="95.0" text="PESEL" />
+            <TableColumn fx:id="colAddress" minWidth="0.0" prefWidth="183.0" text="Address" />
+            <TableColumn fx:id="colJobTitle" prefWidth="99.0" text="Job title" />
+         </columns>
+      </TableView>
+      <JFXButton fx:id="addShopButton" buttonType="RAISED" layoutX="457.0" layoutY="399.0" onAction="#addEmployeeButtononClicked" prefHeight="33.0" prefWidth="155.0" ripplerFill="WHITE" style="-fx-background-color: #3d9fcc;" text="Add Employee" textFill="WHITE" />
+      <JFXButton fx:id="refreshEmployeeButton" buttonType="RAISED" layoutX="457.0" layoutY="442.0" onAction="#refreshEmployeeButtononClicked" prefHeight="31.0" prefWidth="308.0" ripplerFill="WHITE" style="-fx-background-color: #3d9fcc;" text="Refresh" textFill="WHITE" />
+      <JFXButton fx:id="deleteShopButton" buttonType="RAISED" layoutX="631.0" layoutY="400.0" onAction="#deleteEmployeeButtononClicked" prefHeight="32.0" prefWidth="134.0" ripplerFill="WHITE" style="-fx-background-color: #3d9fcc;" text="Delete Employee" textFill="WHITE" />
+      <JFXButton fx:id="BackEmployeeButton" buttonType="RAISED" layoutX="21.0" layoutY="405.0" onAction="#backEmployeeButtononClicked" prefHeight="75.0" prefWidth="155.0" ripplerFill="WHITE" style="-fx-background-color: #3d9fcc;" text=" &lt;--- Back" textFill="WHITE" />
+   </children>
+</AnchorPane>

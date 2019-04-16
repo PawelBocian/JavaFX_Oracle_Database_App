@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="800.0" style="-fx-background-color: #555353;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.UserMainMenuController">
+    <children>
+        <ImageView fx:id="App_Logo" fitHeight="118.0" fitWidth="451.0" layoutX="175.0" layoutY="29.0" pickOnBounds="true" preserveRatio="true">
+            <image>
+                <Image url="@../../ress/User_logo.png" />
+            </image></ImageView>
+        <Pane layoutX="210.0" layoutY="207.0" prefHeight="273.0" prefWidth="382.0" style="-fx-background-color: #555353;">
+            <children>
+            <JFXButton fx:id="Agencies_button" alignment="CENTER" buttonType="RAISED" layoutX="89.0" layoutY="57.0" onAction="#onAgenciesButtonClicked" prefHeight="38.0" prefWidth="205.0" ripplerFill="WHITE" style="-fx-background-color: #3d9fcc;" text="Agencies" textFill="WHITE" />
+                <JFXButton fx:id="Shop_button" alignment="CENTER" buttonType="RAISED" layoutX="89.0" layoutY="7.0" onAction="#onShopButtonClicked" prefHeight="38.0" prefWidth="205.0" ripplerFill="WHITE" style="-fx-background-color: #3d9fcc;" text="Shops" textFill="WHITE" />
+            <JFXButton fx:id="Employees_button" alignment="CENTER" buttonType="RAISED" layoutX="89.0" layoutY="109.0" onAction="#onEmployeesButtonClicked" prefHeight="38.0" prefWidth="205.0" ripplerFill="WHITE" style="-fx-background-color: #3d9fcc;" text="Employees" textFill="WHITE" />
+            <JFXButton fx:id="Exit_button" alignment="CENTER" buttonType="RAISED" layoutX="89.0" layoutY="221.0" onAction="#onExitButtonClicked" prefHeight="30.0" prefWidth="205.0" ripplerFill="WHITE" style="-fx-background-color: #3d9fcc;" text="Exit" textFill="WHITE" />
+            <JFXButton fx:id="logoutButton" alignment="CENTER" buttonType="RAISED" layoutX="89.0" layoutY="183.0" onAction="#onLogoutButtonClicked" prefHeight="30.0" prefWidth="205.0" ripplerFill="WHITE" style="-fx-background-color: #3d9fcc;" text="Logout" textFill="WHITE" />
+            </children>
+        </Pane>
+    </children>
+</AnchorPane>

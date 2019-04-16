@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane prefHeight="500.0" prefWidth="800.0" style="-fx-background-color: #555353;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.UserShopController">
+   <children>
+      <TableView fx:id="shopsTable" layoutX="8.0" layoutY="8.0" prefHeight="383.0" prefWidth="783.0">
+         <columns>
+            <TableColumn fx:id="colID" prefWidth="51.0" text="ID" />
+            <TableColumn fx:id="colName" prefWidth="140.0" text="Name" />
+            <TableColumn fx:id="colDate" prefWidth="147.0" text="Date Of Establishment" />
+            <TableColumn fx:id="colSurface" minWidth="0.0" prefWidth="100.0" text="Surface" />
+            <TableColumn fx:id="colNumberOfAgencies" prefWidth="145.0" text="Number of Agencies" />
+         </columns>
+      </TableView>
+      <JFXButton fx:id="refreshShopButton" buttonType="RAISED" layoutX="190.0" layoutY="407.0" onAction="#refreshShopButtononClicked" prefHeight="75.0" prefWidth="155.0" ripplerFill="WHITE" style="-fx-background-color: #3d9fcc;" text="Refresh" textFill="WHITE" />
+      <JFXButton fx:id="BackShopButton" buttonType="RAISED" layoutX="21.0" layoutY="407.0" onAction="#backShopButtononClicked" prefHeight="75.0" prefWidth="155.0" ripplerFill="WHITE" style="-fx-background-color: #3d9fcc;" text=" &lt;--- Back" textFill="WHITE" />
+   </children>
+</AnchorPane>
