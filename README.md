@@ -1,6 +1,12 @@
-# JavaFX Oracle Database App
+# JavaFX Oracle Database App v.ALFA
 Main purpose of this project is to manage data from Oracle 11g database on Warsaw University of Technology servers.     
 ( Created in a weekend to confirm SQL/Oracle/JavaFX knowledge. )
+
+## Future updates
+---
+* Getting data via dynamic database view
+* Replace static sql requests and use functions implementen in Oracle database
+* Update database models into advertising agency database.
 
 ## Build using :
 ---
@@ -28,7 +34,3 @@ Logical Model           |  Conceptual Model
 * Adding new Employee into database.[**ADMIN**]
 * Handle SQLException by JPanel with SQL error code and description.[**ADMIN**]
 
-## Future updates
----
-* Getting data via dynamic database view
-* Replace static sql requests and use functions implementen in Oracle database
